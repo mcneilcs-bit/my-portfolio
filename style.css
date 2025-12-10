@@ -1,107 +1,408 @@
-:root {
-  --bg: #f5f5f5;
-  --text: #111;
-  --card-bg: #ffffff;
-  --accent: #bb2df7;
+/* AQUARIUS ANIMATED BACKGROUND */
+
+.aquarius-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(130, 180, 255, 0.25), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(180, 130, 255, 0.2), transparent 45%),
+        radial-gradient(circle at 40% 80%, rgba(90, 200, 255, 0.18), transparent 45%),
+        linear-gradient(120deg, #020024, #090979, #00d4ff);
+
+    background-size: 300% 300%;
+    animation: aquariusFlow 18s ease-in-out infinite;
 }
 
-body.dark {
-  --bg: #0f0326;
-  --text: #ffffff;
-  --card-bg: #1a0738;
-  --accent: #64ffda;
+/* LIGHT MODE BACKGROUND */
+body.light .aquarius-bg {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(100, 170, 255, 0.18), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(170, 120, 255, 0.15), transparent 45%),
+        radial-gradient(circle at 40% 80%, rgba(70, 190, 255, 0.12), transparent 45%),
+        linear-gradient(120deg, #f9fcff, #cde6ff, #e7f2ff);
+}
+
+/* FLOWING LOOP ANIMATION */
+@keyframes aquariusFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --bg-dark: #111;
+    --bg-light: #f5f5f5;
+    --text-dark: #fff;
+    --text-light: #111;
+    --card-dark: #1e1e1e;
+    --card-light: #ffffff;
+    --accent: #8a4fff;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  transition: background 0.3s, color 0.3s;
+    font-family: system-ui, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #bb2df7, #3bc9ff);
-  color: white;
-  animation: fadeIn 1.2s ease;
+body.light {
+    background: var(--bg-light);
+    color: var(--text-light);
 }
 
-.theme-btn {
-  margin-top: 1rem;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  background: black;
-  color: white;
-  font-size: 1rem;
+header {
+    text-align: center;
+    padding: 3rem 1rem;
 }
 
-.theme-btn:hover {
-  transform: scale(1.1);
+header h1 {
+    font-size: 2.5rem;
 }
 
-/* PROJECT GRID */
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 2rem;
-  padding: 3rem;
+#themeToggle {
+    margin-top: 1rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--accent);
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-/* PROJECT CARDS */
+/* about button*/
+
+.about-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 14px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+
+}
+
+.about-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+body.light .about-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #111;
+}
+
+body.light .about-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*intro*/
+
+.intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* PROJECTS GRID */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* CLICKABLE Wrapper */
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* CARD */
 .project-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
+    background: var(--card-dark);
+    padding: 1.8rem;
+    border-radius: 16px;
+    height: 100%;
+    transition: 0.25s ease;
+    animation: fadeUp 0.8s forwards;
 }
 
-.project-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+body.light .project-card {
+    background: var(--card-light);
 }
 
-.project-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg,var(--accent),transparent);
-  opacity: 0.1;
+/* HOVER EFFECT */
+.project-link:hover .project-card {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0px 15px 32px rgba(0, 0, 0, 0.25);
 }
 
 .project-card h2 {
-  margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
-.project-card a {
-  display: inline-block;
-  margin-top: 1rem;
-  text-decoration: none;
-  color: var(--accent);
-  font-weight: bold;
+.project-card p {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
 }
 
-.project-card a:hover {
-  text-decoration: underline;
+.visit {
+    color: var(--accent);
+    font-weight: bold;
 }
 
-/* FOOTER */
 footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
+    text-align: center;
+    padding: 3rem 0 1.5rem;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.about-container h2,
+.about-container h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.about-container ul {
+    list-style-type: square;
+    display: inline-block;
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+/* SIMPLE ENTRANCE ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FLOATING STAR GEMS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 80% 60%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 40% 80%, rgba(200, 230, 255, 0.5), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: driftStars 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes driftStars {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 -1000px;
+    }
+}
+
+/* CLICKABLE STARS */
+
+.star {
+    width: 8px;
+    height: 8px;
+    position: fixed;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, .8);
+    cursor: pointer;
+    animation: floatUp linear infinite;
+    animation-duration: 20s;
+    /* slower than before */
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+/* Easter Egg Message UI */
+.easter-msg {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.easter-msg.show {
+    opacity: 1;
+}
+
+#constellation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.about-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem 2rem;
+    text-align: center;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(138, 79, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(138, 79, 255, 0.4), 0 0 50px rgba(0, 212, 255, 00.25s);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.about-container h2,
+.about-container h3 {
+    color: #8a4fff;
+    text-shadow: 0 0 8px rbga(138, 79, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.about-container ul {
+    list-style-type: square;
+    display: inline-block;
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+    color: #fff;
+}
+
+/* paragraphs with light fade*/
+.about-container p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Back to Projects Button */
+#backToProjects {
+    background: rgba(138, 79, 255, 0.8);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#backToProjects:hover {
+    background: rgba(138, 79, 255, 1);
+    box-shadow: 0 0 15px rgba(138, 79, 255, 0.7), 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+/* smooth fad in */
+.about-container.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.about-container.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header buttons */
+.header-buttons {
+    margin-top: 10px;
+}
+
+.header-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.header-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Hide sections */
+.hidden {
+    display: none;
+}
+
+
+
+/* About section styling */
+.about-section {
+    padding: 30px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    color: #fff;
+}
+
+.social-link {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #fff; /* or a lighter accent for hover */
 }

@@ -1,90 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Cameryn McNeil – Creative Coding Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title> Cameryn McNeil | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <header class="hero">
-    <h1>✨ Cameryn McNeil ✨</h1>
-    <p>Creative Coder · Interactive Artist · API Explorer</p>
+<body class="dark">
 
-    <button id="toggle-mode" class="theme-btn">🌙 Dark Mode</button>
-  </header>
+    <div class="aquarius-bg"></div>
+    <div class="stars"></div>
+    <div id="easter-message" class="easter-msg"></div>
+    <canvas id="constellation"></canvas>
 
-  <main class="portfolio">
+    <header>
+        <h1>✨ Cameryn McNeil ✨</h1>
+        <p>Creative Web Projects Portfolio</p>
 
-    <!-- PROJECT 1 -->
-    <div class="project-card">
-      <h2>🎹 Build-A-Piano</h2>
-      <p>
-        Interactive digital piano built with JavaScript that maps keyboard input
-        to sound and animation.
-      </p>
-      <a href="https://mcneilcs-bit.github.io/Build-A-Piano/" target="_blank">
-        Visit Project →
-      </a>
-    </div>
+        <div class="header-buttons">
+            <button id="themeToggle">🌙 Toggle Theme</button>
+            <button id="aboutToggle" class="header-btn">ℹ️ About Me</button>
+        </div>
+    </header>
 
-    <!-- PROJECT 2 -->
-    <div class="project-card">
-      <h2>🎧 Music Player</h2>
-      <p>
-        Custom audio player interface featuring playlist navigation,
-        progress tracking, and responsive controls.
-      </p>
-      <a href="https://mcneilcs-bit.github.io/music-player/" target="_blank">
-        Visit Project →
-      </a>
-    </div>
+    <main>
+        <!-- PROJECTS SECTION -->
+        <section id="projects-section">
+            <section class="intro"> 
+             </h2>My Coding Projects</h2>
+            <p>Here are some interactive projects I built using HTML, CSS, and JavaScript. Click any card to explore the websites.</p>
+            </section>
 
-    <!-- PROJECT 3 -->
-    <div class="project-card">
-      <h2>🗣 Speak Number Guessing Game</h2>
-      <p>
-        Voice-activated guessing game using the Web Speech API to recognize
-        spoken input and guide the player.
-      </p>
-      <a href="https://mcneilcs-bit.github.io/speak-number-guessing-game-/" target="_blank">
-        Visit Project →
-      </a>
-    </div>
-    
-    <!-- PROJECT 4 -->
-<div class="project-card">
-  <h2>🎮 Catch a Bug Game</h2>
-  <p>
-    A fast-paced browser game where players click disappearing bugs
-    before the timer runs out. Built with JavaScript and interactive animations.
-  </p>
-  <a href="https://mcneilcs-bit.github.io/Catch-a-Bug/" target="_blank">
-    Visit Project →
-  </a>
-</div>
+            <section class="projects">
 
-<!-- PROJECT 5 -->
-<div class="project-card">
-  <h2>🎤 Lyric Search App</h2>
-  <p>
-    Music search tool using public lyric APIs to find songs by artist or title.
-    Features album thumbnails, pagination, caching, loading states,
-    and fallback solutions for slow or unavailable APIs.
-  </p>
-  <a href="https://mcneilcs-bit.github.io/lyric-search-app/" target="_blank">
-    Visit Project →
-  </a>
-</div>
+                 <!-- PROJECT 1 -->
+                <a class="project-link" href="https://mcneilcs-bit.github.io/Build-A-Piano/" target="_blank" rel="noopener">
+                    <div class="project-card">
+                        <h2>🎹 Build a Piano</h2>
+                        <p>A virtual piano keyboard that plays musical notes using keyboard and mouse input.</p>
+                        <span class="visit">Visit Project →</span>
+                    </div>
+                </a>
 
+                <!-- PROJECT 2 -->
+                <a class="project-link" href="https://mcneilcs-bit.github.io/music-player/" target="_blank" rel="noopener">
+                    <div class="project-card">
+                        <h2>🎧 Music Player</h2>
+                        <p>A custom audio player interface with play/pause features and a sleek user experience.</p>
+                        <span class="visit">Visit Project →</span>
+                    </div>
+                </a>
 
-  </main>
+                <!-- PROJECT 3 -->
+                <a class="project-link" href="https://mcneilcs-bit.github.io/speak-number-guessing-game-/" target="_blank" rel="noopener">
+                    <div class="project-card">
+                        <h2>🗣 Speak Number Guessing Game</h2>
+                        <p>A voice-controlled number guessing game using speech recognition APIs.</p>
+                        <span class="visit">Visit Project →</span>
+                    </div>
+                </a> 
+                        <!-- PROJECT 4 -->
+        <a class="project-link" href="https://mcneilcs-bit.github.io/Catch-a-Bug/" target="_blank" rel="noopener">
+            <div class="project-card">
+                <h2>🐞 Catch a Bug Game</h2>
+                <p>A fast-paced clicking game testing player reaction time and accuracy.</p>
+                <span class="visit">Visit Project →</span> 
+            </div>
+        </a>
+               <!-- PROJECT 5 (Lyric Search App) --> 
+                <a class="project-link" href="https://mcneilcs-bit.github.io/lyric-search-app/" target="_blank" rel="noopener">
+            <div class="project-card">
+                <h2>🎵 Lyric Search App</h2>
+                <p>An app that finds song lyrics using public APIs with caching and request fallbacks.</p>
+                <span class="visit">Visit Project →</span>
+            </div>
+        </a>
+         </section>
+        </section>
 
-  <footer>
-    <p>© 2025 Cameryn McNeil</p>
-  </footer>
+         <!-- ABOUT ME SECTION -->
+        <section id="about-section" class="hidden">
+            <h2>About Me</h2>
+            <p>Hi! I'm Cameryn McNeil, a passionate web coder and multi-media artist from Richmond, VA. I love to investigate the intersection of art and technology through creative coding projects. When I'm not coding, I enjoy playing music, creating digital art, and exploring new design trends.</p>
+            <h3>Skills:</h3>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Interactive animations & visual effects</li>
+                <li>API integration & creative web apps</li>
+                <li>Dark/Light Mode & responsive design</li>
+            </ul>
+            <h3>Interests:</h3>
+            <p>Astrology-inspired designs, interactive projects, games, music apps.</p>
+            <h3>Connect with Me:</h3>
+            <p>
+         <a href="https://www.instagram.com/sincerelyycam?igsh=MWtpeGt6Y29xcXR0OQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="social-link">📸 Instagram</a>
+    &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/in/cameryn-mcneil0526/" target="_blank" rel="noopener" class="social-link">💼 LinkedIn</a>
+            </p>
+            <button id="backToProjects">← Back to Projects</button>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <footer>
+        <p>© 2025 Cameryn McNeil </p>
+
+<script src="script.js"></script>
 </body>
 </html>
+        
+
+       
